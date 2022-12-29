@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from './src/modules/redux/store';
+import store from './src/modules/reducers/store';
 import VehicleSpeedScreen from './src/navigators/VehicleSpeedScreen';
 import UiContextProvider from './src/context/UiContextProvider';
 
