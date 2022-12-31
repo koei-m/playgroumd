@@ -6,7 +6,8 @@ import sagas from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: {vehicle: vehicleReducer.reducer, async: sagas.reducer},
-  middleware: [sagaMiddleware],
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(sagaMiddleware),
 });
 sagaMiddleware.run(sagas.rootSaga);
 
