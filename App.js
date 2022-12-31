@@ -14,6 +14,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import store from './src/modules/reducers/store';
 import VehicleSpeedScreen from './src/navigators/VehicleSpeedScreen';
 import AnimatedViewScreen from './src/navigators/AnimatedViewScreen';
+import AsyncScreen from './src/navigators/AsyncScreen';
 import UiContextProvider from './src/context/UiContextProvider';
 
 const Stack = createNativeStackNavigator();
@@ -26,9 +27,9 @@ const HomeScreen = ({navigation}) => {
     {
       name: 'AnimatedViewScreen',
     },
-    // {
-    //   name: 'Async',
-    // },
+    {
+      name: 'AsyncScreen',
+    },
   ];
 
   const Item = ({item}) => {
@@ -83,6 +84,13 @@ export default function App() {
               component={AnimatedViewScreen}
               options={{
                 headerTitle: 'AnimatedViewScreen',
+              }}
+            />
+            <Stack.Screen
+              name="AsyncScreen"
+              component={AsyncScreen}
+              options={{
+                headerTitle: 'AsyncScreen',
               }}
             />
           </Stack.Navigator>

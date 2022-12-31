@@ -126,4 +126,24 @@ function* rootSaga() {
   yield all([watchTimeAsync(), watchNameAsync()]);
 }
 
-export default {rootSaga, reducer, asyncActions, SagaActionTypes};
+const selectName = state => {
+  return state.async.name;
+};
+
+const selectTime = state => {
+  return state.async.time;
+};
+
+const selectIsLoading = state => {
+  return state.async.isLoading;
+};
+
+export default {
+  rootSaga,
+  reducer,
+  asyncActions,
+  SagaActionTypes,
+  selectName,
+  selectTime,
+  selectIsLoading,
+};
