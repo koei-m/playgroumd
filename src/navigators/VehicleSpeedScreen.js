@@ -1,14 +1,13 @@
 import React from 'react';
+import {SafeAreaView} from 'react-native';
 import VehicleSpeedContainer from '../containers/VehicleSpeedContainer';
 import ControlSpeedContainer from '../containers/ControlSpeedContainer';
-import AnimatedViewContainer from '../containers/AnimatedViewContainer';
 const VehicleSpeedScreen = () => {
   return (
-    <>
-      <AnimatedViewContainer />
+    <SafeAreaView style={{flex: 1}}>
       <VehicleSpeedContainer />
       <ControlSpeedContainer />
-    </>
+    </SafeAreaView>
   );
 };
 

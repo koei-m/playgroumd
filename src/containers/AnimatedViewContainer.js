@@ -63,6 +63,12 @@ const AnimatedViewContainer = () => {
           duration: 1000,
         }),
       ]),
+      Animated.spring(animations.rotateAnim, {
+        // and twirl
+        toValue: 0,
+        useNativeDriver: true,
+        duration: 1000,
+      }),
     ]).start();
   };
 
@@ -88,14 +94,10 @@ const AnimatedViewContainer = () => {
         ]}
       />
       <View style={styles.buttonRow}>
-        <View style={styles.buttons}>
-          <Button title="Fade In View" onPress={fadeIn} />
-          <Button title="Fade Out View" onPress={fadeOut} />
-        </View>
-        <View style={styles.buttons}>
-          <Button title="Scale Up View" onPress={scaleUp} />
-          <Button title="Scale Down View" onPress={scaleDown} />
-        </View>
+        <Button title="Fade In View" onPress={fadeIn} />
+        <Button title="Fade Out View" onPress={fadeOut} />
+        <Button title="Scale Up View" onPress={scaleUp} />
+        <Button title="Scale Down View" onPress={scaleDown} />
         <Button title="Move" onPress={moveToRight} />
       </View>
     </View>
@@ -108,17 +110,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-  },
   fadingContainer: {
     backgroundColor: 'red',
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 50,
     position: 'absolute',
-    left: 0,
-    top: 250,
+    left: 10,
+    top: 10,
   },
   fadingText: {
     fontSize: 28,
