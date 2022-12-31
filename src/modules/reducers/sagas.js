@@ -70,7 +70,7 @@ const reducer = handleActions(
       newState.name = action.payload;
       return newState;
     },
-    [SagaActionTypes.GET_NAME_SUCCEEDED]: (state, action) => {
+    [SagaActionTypes.GET_TIME_SUCCEEDED]: (state, action) => {
       const newState = {...state};
       newState.isLoading = false;
       newState.time = action.payload;
@@ -96,10 +96,10 @@ function* fetchName(action) {
   try {
     console.log('waiting...');
     const name = yield call(Api.get_name, action.payload.name);
-    console.log('finished');
+    console.log(name, 'finished');
     yield put(getNameSuceeded(name));
   } catch (e) {
-    yield put(getTimeFailed(e));
+    yield put(getNameFailed(e));
   }
 }
 
@@ -107,7 +107,7 @@ function* fetchTime(action) {
   try {
     console.log('waiting...');
     const time = yield call(Api.get_time, action.payload.flag);
-    console.log('finished');
+    console.log(time.toString(), 'finished');
     yield put(getTimeSuceeded(time));
   } catch (e) {
     yield put(getTimeFailed(e));

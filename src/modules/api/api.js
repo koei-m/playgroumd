@@ -1,6 +1,8 @@
 const delay = ms => new Promise(res => setTimeout(res, ms));
-const get_time = flag => {
-  delay(3000);
+async function get_time(flag) {
+  console.log('async start');
+  await delay(3000);
+  console.log('async end');
   if (!flag) {
     throw 'Invalid';
   }
@@ -24,14 +26,16 @@ const get_time = flag => {
     youbi[date1.getDay()] +
     '曜日'; // 0は日曜日～6は土曜日
   return date2;
-};
+}
 
-const get_name = name => {
-  delay(3000);
+async function get_name(name) {
+  console.log('async start');
+  await delay(3000);
+  console.log('async end');
   if (!name) {
     throw 'Invalid';
   }
   return name;
-};
+}
 
 export default {get_name, get_time};
